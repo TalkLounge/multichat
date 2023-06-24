@@ -14,14 +14,19 @@
               <i class="bi-play-btn"></i>
             </button>
           </a>
-          <a :href="chat.chat" target="_blank" class="m-1" title="Open Chat in New Tab">
+          <a :href="chat.chat" target="_blank" class="m-1" title="Open Stream Chat in New Tab">
             <button class="btn btn-success">
               <i class="bi-chat"></i>
             </button>
           </a>
           <a v-if="dashboard" :href="chat.dashboard" target="_blank" class="m-1" title="Open Stream Dashboard in New Tab">
             <button class="btn btn-info">
-              <i class="bi-bar-chart"></i>
+              <i class="bi-broadcast"></i>
+            </button>
+          </a>
+          <a v-if="modtools && chat.modtools" :href="chat.modtools" target="_blank" class="m-1" title="Open Stream Modtools in New Tab">
+            <button class="btn btn-warning">
+              <i class="bi-shield"></i>
             </button>
           </a>
         </div>
@@ -69,7 +74,8 @@ export default {
   data() {
     return {
       chats: [],
-      dashboard: true
+      dashboard: false,
+      modtools: false
     }
   },
   async mounted() {
@@ -79,8 +85,10 @@ export default {
     for (let i = 0; i < params.length; i++) {
       let param = params[i].split(":");
 
-      if (param[0] == "disable-dashboard") {
-        this.dashboard = false;
+      if (param[0] == "enable-dashboard") {
+        this.dashboard = true;
+      } else if (param[0] == "enable-modtools") {
+        this.modtools = true;
       }
 
       param[0] = this.matchProvider(param[0]);
@@ -114,6 +122,7 @@ export default {
           item.chat = `https://www.twitch.tv/popout/${item.channel}/chat?popout=`;
           item.stream = `https://www.twitch.tv/${item.channel}`;
           item.dashboard = `https://dashboard.twitch.tv/u/${item.channel}/stream-manager`;
+          item.modtools = `https://www.twitch.tv/moderator/${item.channel}`;
 
           break;
         case "kick":
@@ -121,6 +130,7 @@ export default {
           item.chat = `https://kick.com/${item.channel}/chatroom`;
           item.stream = `https://kick.com/${item.channel}`;
           item.dashboard = "https://kick.com/dashboard/stream";
+          item.modtools = `https://kick.com/${item.channel}/moderator`;
 
           break;
         case "trovo":

@@ -26,15 +26,16 @@ See multiple chats combined on one website. You are a stream viewer and want to 
 
 Parameters consist of Key and Value in the format Key:Value, separated from other Parameters with +
 <br>
-Example URL: https://talklounge.github.io/multichat/#/youtube:UCCF03uSQvNvCEvQgD8VRYiw+twitch:TalkLounge+disable-dashboard
+Example URL: https://talklounge.github.io/multichat/#/youtube:UCCF03uSQvNvCEvQgD8VRYiw+twitch:TalkLounge+enable-dashboard
 
-Key               | Value        | Example Key:Value                | Info
------------------ | ------------ | -------------------------------- | ---
-youtube           | Channel-ID   | youtube:UCCF03uSQvNvCEvQgD8VRYiw | Channel-ID can be found [here](https://www.youtube.com/account_advanced)
-twitch            | Channel Name | twitch:TalkLounge
-kick              | Channel Name | kick:TalkLounge
-trovo             | Channel Name | trovo:TalkLounge/224265272
-disable-dashboard |              |                                  | Disables Dashboard Button
+Key              | Value        | Example Key:Value                | Info
+---------------- | ------------ | -------------------------------- | ---
+youtube          | Channel-ID   | youtube:UCCF03uSQvNvCEvQgD8VRYiw | Channel-ID can be found [here](https://www.youtube.com/account_advanced)
+twitch           | Channel Name | twitch:TalkLounge
+kick             | Channel Name | kick:TalkLounge
+trovo            | Channel Name | trovo:TalkLounge/224265272
+enable-dashboard |              |                                  | Enables Dashboard Button
+enable-modtools  |              |                                  | Enables Modtools Button
 
 ## Setup
 ### Requirements

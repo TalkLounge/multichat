@@ -15,3 +15,8 @@ app.config.globalProperties.$axios = axios;
 app.config.globalProperties.$cheerio = cheerio;
 
 app.mount("#app")
+
+/*
+Add GitHub Link in Corner & disable-github URL Paramater
+Optimize for mobile & overflow-y: hidden
+*/
