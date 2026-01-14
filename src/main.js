@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import axios from "axios"
-import cheerio from "cheerio"
+import * as cheerio from "cheerio"
 
 const app = createApp(App)
 
