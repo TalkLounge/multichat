@@ -195,11 +195,17 @@ export default {
       }
 
       const $ = this.$cheerio.load(data);
-      const url = $("link[rel=canonical]").prop("href");
-      // No Livestream found
-      if (! url) {
+
+      let url = $("script").filter((_, item) => $(item).text().includes("ytcfg.set")).first().text();
+      url = url.slice(url.indexOf("ytcfg.set(") + 10);
+      url = url.slice(0, url.indexOf("});") + 1);
+      url = JSON.parse(url).PLAYER_VARS.embedded_player_response;
+
+      if (!url) { // No Livestream found
         return;
       }
+
+      url = JSON.parse(url).previewPlayabilityStatus.errorScreen.playerErrorMessageRenderer.reason.runs[0].text;
 
       return this.parseYouTubeVideoIdByUrl(url);
     },
